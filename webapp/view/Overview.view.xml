@@ -1,0 +1,13 @@
+<mvc:View controllerName="sap.btp.cpidashboard.controller.App" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" displayBlock="true">
+	<Shell>
+		<App>
+			<pages>
+				<Page title="{i18n>homePageTitle}">
+					<content>
+							<mvc:XMLView viewName="sap.btp.cpidashboard.view.CPIMonitoringOverview"/>
+						</content>
+					</Page>
+				</pages>
+			</App>
+		</Shell>
+	</mvc:View>

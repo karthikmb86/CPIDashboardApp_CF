@@ -1,0 +1,61 @@
+<mvc:View controllerName="sap.btp.cpidashboard.controller.CPIMonitoringOverview" displayBlock="true" xmlns="sap.m" xmlns:t="sap.ui.table"
+	xmlns:l="sap.ui.layout" xmlns:mvc="sap.ui.core.mvc">
+	<Shell>
+		<App>
+			<pages>
+				<Page title="Monitoring Dashboard">
+					<content>
+						<IconTabBar id="myIconTabBar" select="onTabBarSelected">
+							<items>
+								<IconTabFilter icon="sap-icon://calendar" text="Monitoring Overview" key="tab1Key">
+									<l:VerticalLayout width="100%">
+										<l:HorizontalLayout width="100%">
+											<DateTimePicker id="DTP1" placeholder="From" class="sapUiSmallMarginBottom"/>
+											<DateTimePicker id="DTP2" placeholder="To" class="sapUiSmallMarginBottom"/>
+											<Button class="datetime-layout" text="Go" press="onGoPress" width="100%"/>
+										</l:HorizontalLayout>
+										<l:HorizontalLayout width="100%">
+											<SearchField
+											id="searchInterfaceName"
+											width="500px"
+											placeholder="Search Interface Name"
+											search=".onSearchInterfaceName"/>
+										</l:HorizontalLayout>
+									</l:VerticalLayout>
+									<BusyIndicator id="busyIndicator" size="1.6rem" class="sapUiMediumMarginBegin" />
+									<Table id="tbMonitoringOverview" growing="true" growingThreshold="10" items="{ path: '/monitoringRecords' }">
+										<columns>
+											<Column>
+												<Text text="Interface Flow Name"/>
+											</Column>
+											<Column>
+												<Text text="Successful"/>
+											</Column>
+											<Column sortProperty="status" sortable="true">
+												<Text text="Failed"/>
+											</Column>
+										</columns>
+										<items>
+											<ColumnListItem id="monitoringOverviewColumnList" type="Navigation" press="onPress">
+												<cells>
+													<Text text="{IntegrationArtifactName}"/>
+												</cells>
+												<cells>
+													<Text text="{Successful}"/>
+												</cells>
+												<cells>
+													<Text text="{Failed}"/>
+												</cells>
+											</ColumnListItem>
+										</items>
+									</Table>
+								</IconTabFilter>
+							<!--	<IconTabFilter icon="sap-icon://calendar" text="Monitoring Log" key="tab2Key"></IconTabFilter> -->
+							</items>
+						</IconTabBar>
+					</content>
+				</Page>
+			</pages>
+		</App>
+	</Shell>
+</mvc:View>

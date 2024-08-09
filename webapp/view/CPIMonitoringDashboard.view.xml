@@ -1,0 +1,127 @@
+<mvc:View controllerName="sap.btp.cpidashboard.controller.CPIMonitoringDashboard" displayBlock="true" xmlns="sap.m"
+	xmlns:l="sap.ui.layout" xmlns:mvc="sap.ui.core.mvc">
+	<Shell>
+		<App busy="{appView>/busy}" class="sapUiSizeCompact">
+			<pages>
+				<Page title="{i18n>cpiMonitoringPageTitle}"  showNavButton="true" navButtonPress="onNavBack">
+					<content>
+						<l:VerticalLayout width="100%">
+							<l:HorizontalLayout width="100%">
+								<DateTimePicker id="DTP1" placeholder="From" class="sapUiSmallMarginBottom"/>
+								<DateTimePicker id="DTP2" placeholder="To" class="sapUiSmallMarginBottom"/>
+								<Button class="datetime-layout" text="Go" press="onGoPress" width="100%"/>
+							</l:HorizontalLayout>
+							<l:HorizontalLayout width="100%"></l:HorizontalLayout>
+						</l:VerticalLayout>
+						<Table id="tbMonitoringDashboard" growing="true" growingThreshold="10" items="{ path: '/monitoringRecords' }">
+							<headerToolbar>
+								<OverflowToolbar>
+									<content>
+										<ToolbarSpacer/>
+										<SearchField id="searchField" width="20%" placeholder="{i18n>searchFieldPlaceholder_Monitoring}" search=".onSearch"/>
+										<Button id="refreshPackagesButton" icon="sap-icon://refresh" tooltip="{i18n>refreshButtonText}" press=".onRefresh"/>
+										<Button id="sortPackagesButton" icon="sap-icon://sort" tooltip="{i18n>sortButtonText}" press="onSort"/>
+									</content>
+								</OverflowToolbar>
+							</headerToolbar>
+							<columns>
+								<Column id="LogStart">
+									<Text text="Start Time"/>
+								</Column>
+								<Column id="LogEnd">
+									<Text text="End Time"/>
+								</Column>
+								<Column id="IntegrationFlowName">
+									<Text text="Integration Flow Name"/>
+								</Column>
+								<Column id="Status">
+									<Text text="Status"/>
+								</Column>
+								<Column id="LogLevel">
+									<Text text="Log Level"/>
+								</Column>
+								<Column id="MessageGuid">
+									<Text text="Message Guid"/>
+								</Column>
+							</columns>
+							<items>
+								<ColumnListItem id="monitoringColumnList" type="Navigation" press="onPress">
+									<cells>
+										<Text text="{LogStart}"/>
+									</cells>
+									<cells>
+										<Text text="{LogEnd}"/>
+									</cells>
+									<cells>
+										<Text text="{IntegrationArtifact/Name}"/>
+									</cells>
+									<cells>
+										<Text text="{Status}"/>
+									</cells>
+									<cells>
+										<Text text="{LogLevel}"/>
+									</cells>
+									<cells>
+										<Text text="{MessageGuid}"/>
+									</cells>
+								</ColumnListItem>
+							</items>
+						</Table>
+					</content>
+				</Page>
+			</pages>
+		</App>
+	</Shell>
+</mvc:View>
+<!--<mvc:View 
+   controllerName="sap.btp.cpidashboard.controller.CPIMasterInterfaceRepository"
+   xmlns="sap.ui.table"
+   xmlns:m="sap.m"
+   xmlns:u="sap.ui.unified"
+   xmlns:c="sap.ui.core"
+   xmlns:mvc="sap.ui.core.mvc"
+   height="100%">
+<m:Page
+		showHeader="false"
+		enableScrolling="false"
+		class="sapUiContentPadding">
+		<m:content>
+		Removed rows="{/Artefacts}" from table attribute and added code in controller for binding
+			<Table
+			    id="tbMasterInterface"
+				selectionMode="MultiToggle"
+				visibleRowCount="7"
+				paste="onPaste"
+				ariaLabelledBy="title">
+				<extension>
+					<m:OverflowToolbar style="Clear">
+						<m:Title id="title" text="Packages"/>
+					</m:OverflowToolbar>
+				</extension>
+				<columns>
+					<Column width="25rem">
+						<m:Label text="Packages Name" />
+						<template>
+							<m:Text text="{PackageId}" wrapping="false" />
+						</template>
+					</Column>
+					<Column width="25rem">
+						<m:Label text="Artefact Name" />
+						<template>
+							<m:Text text="{ArtefactName}"/>
+						</template>
+					</Column>
+					<Column width="25rem">
+						<m:Label text="Artefact Id" />
+						<template>
+							<m:Text text="{ArtefactId}" />
+						</template>
+					</Column>
+				</columns>
+			</Table>
+			
+		</m:content>
+	</m:Page>
+	
+	
+</mvc:View>-->
