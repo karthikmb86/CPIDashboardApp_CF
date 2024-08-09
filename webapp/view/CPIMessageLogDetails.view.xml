@@ -1,0 +1,49 @@
+<mvc:View xmlns="sap.m" xmlns:semantic="sap.f.semantic" xmlns:mvc="sap.ui.core.mvc" xmlns:l="sap.ui.layout"
+	controllerName="sap.btp.cpidashboard.controller.CPIMessageLogDetails">
+	<Page showNavButton="true" navButtonPress="onNavBack">
+		<content>
+			<semantic:SemanticPage showNavButton="true" navButtonPress="onNavBack" id="page" headerPinnable="false" toggleHeaderOnTitleClick="false"
+				busy="{objectView>/busy}" busyIndicatorDelay="{objectView>/delay}">
+				<semantic:titleHeading>
+					<Title text="Message Details"/>
+				</semantic:titleHeading>
+				<semantic:headerContent>
+					<FlexBox alignItems="Start" justifyContent="SpaceBetween">
+						<Panel backgroundDesign="Transparent">
+							<ObjectAttribute title="iFlow Name" text="{/iFlowNameParam}"/>
+							<ObjectAttribute title="Message GUID" text="{/msgGUIDParam}"/>
+						</Panel>
+					</FlexBox>
+				</semantic:headerContent>
+				<semantic:content>
+					<l:VerticalLayout>
+						
+					</l:VerticalLayout>
+				</semantic:content>
+				<semantic:content>
+					<FlexBox direction="Column" width="100%">
+						<FlexBox direction="Row" justifyContent="End" width="100%">
+							<Button text="Download Payload" press="onPressDownloadPayload"/>
+						</FlexBox>
+						<TextArea id="textAreaPayload" width="100%" height="400px" wrapping="Soft"
+                            layoutData="{
+                                path: '',
+                                type: 'sap.ui.layout.GridData',
+                                template: {
+                                    span: 'L12 M12 S12'
+                                }
+                            }"/>
+					</FlexBox>
+				</semantic:content>
+				<!--<semantic:content>
+					<l:VerticalLayout>
+					<Label text="Message Log" width="100%" id="lblMessageLog"/>
+					<Label text="" width="100%" id="lblMessageLogText" wrapping="true"/>
+					</l:VerticalLayout>
+				</semantic:content>-->
+				<!--<Label text="Label" width="100%" id="label3"/>-->
+				<!--<Button text="Download Payload" press="onPressDownloadPayload"/>-->
+			</semantic:SemanticPage>
+		</content>
+	</Page>
+</mvc:View>
