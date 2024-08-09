@@ -17,7 +17,7 @@ server:
           url: https://ui5.sap.com
         backend:
           - path: /v1
-            url: https://e1053-tmn.hci.ap1.hana.ondemand.com/api/
+            url: https://<CPITenantHost>/api/
     - name: fiori-tools-appreload
       afterMiddleware: compression
       configuration:
