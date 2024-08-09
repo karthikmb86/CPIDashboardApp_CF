@@ -17,7 +17,7 @@ server:
           url: https://ui5.sap.com
         backend:
           - path: /v1
-            url: https://<CPITenantHost>/api/
+            url: https://Add_CPI_URL/api/
     - name: fiori-tools-appreload
       afterMiddleware: compression
       configuration:
